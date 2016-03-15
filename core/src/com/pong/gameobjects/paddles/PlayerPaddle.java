@@ -1,9 +1,12 @@
 package com.pong.gameobjects.paddles;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
+
+import java.security.Key;
 
 /**
  * Created by Carl on 12/03/2016.
@@ -17,7 +20,15 @@ public class PlayerPaddle extends Paddle
 
     public void update()
     {
+        if(Gdx.input.isKeyPressed(Input.Keys.UP))
+        {
+            position.y += speed;
+        }
 
+        if(Gdx.input.isKeyPressed(Input.Keys.DOWN))
+        {
+            position.y -= speed;
+        }
     }
 
     public void render()

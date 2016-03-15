@@ -49,6 +49,7 @@ public class Pong extends ApplicationAdapter
 			{
 				for(int i = 0; i < gameObject.size(); ++i)
 				{
+					gameObject.get(i).update();
 					gameObject.get(i).render();
 				}
 

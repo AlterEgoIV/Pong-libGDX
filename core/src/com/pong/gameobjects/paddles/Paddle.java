@@ -7,9 +7,12 @@ import com.pong.gameobjects.GameObject;
  */
 abstract public class Paddle extends GameObject
 {
+    protected final int speed;
+
     public Paddle()
     {
         width = 10.0f;
         height = 50.0f;
+        speed = 10;
     }
 }
