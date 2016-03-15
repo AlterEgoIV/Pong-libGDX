@@ -6,28 +6,25 @@ import com.badlogic.gdx.graphics.GL20;
 import com.pong.gameobjects.GameObject;
 import com.pong.gameobjects.ball.Ball;
 import com.pong.gameobjects.paddles.AIPaddle;
-import com.pong.gameobjects.paddles.Paddle;
 import com.pong.gameobjects.paddles.PlayerPaddle;
+import com.pong.states.GameState;
 
 import java.util.ArrayList;
 
 public class Pong extends ApplicationAdapter
 {
-	ArrayList<GameObject> gameObject;
-	Paddle player, ai;
-	Ball ball;
+	public GameState gameState;
+	private ArrayList<GameObject> gameObject;
 	
 	@Override
 	public void create()
 	{
+		gameState = GameState.PLAY;
 		gameObject = new ArrayList<GameObject>();
-		player = new PlayerPaddle();
-		ai = new AIPaddle();
-		ball = new Ball();
 
-		gameObject.add(player);
-		gameObject.add(ai);
-		gameObject.add(ball);
+		gameObject.add(new PlayerPaddle());
+		gameObject.add(new AIPaddle());
+		gameObject.add(new Ball());
 	}
 
 	@Override
@@ -36,9 +33,42 @@ public class Pong extends ApplicationAdapter
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-		for(int i = 0; i < gameObject.size(); ++i)
+		switch(gameState)
 		{
-			gameObject.get(i).render();
+			case TITLE:
+			{
+				break;
+			}
+
+			case MAINMENU:
+			{
+				break;
+			}
+
+			case PLAY:
+			{
+				for(int i = 0; i < gameObject.size(); ++i)
+				{
+					gameObject.get(i).render();
+				}
+
+				break;
+			}
+
+			case PAUSE:
+			{
+				break;
+			}
+
+			case GAMEOVER:
+			{
+				break;
+			}
+
+			default:
+			{
+				System.out.println("Game in invalid state.");
+			}
 		}
 	}
 }

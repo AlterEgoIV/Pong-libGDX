@@ -16,7 +16,7 @@ public class Ball extends GameObject
     public Ball()
     {
         position = new Vector2(Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2);
-        radius = 5.0f;
+        radius = 4.0f;
     }
 
     public void update()
