@@ -27,4 +27,9 @@ public class AIPaddle extends Paddle
         shape.rect(position.x, position.y, width, height);
         shape.end();
     }
+
+    public void move()
+    {
+
+    }
 }

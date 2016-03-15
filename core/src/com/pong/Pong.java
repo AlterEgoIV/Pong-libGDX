@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class Pong extends ApplicationAdapter
 {
 	public GameState gameState;
-	private ArrayList<GameObject> gameObject;
+	public ArrayList<GameObject> gameObject;
 	
 	@Override
 	public void create()
