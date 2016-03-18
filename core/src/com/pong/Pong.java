@@ -4,9 +4,10 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.pong.gameobjects.GameObject;
-import com.pong.gameobjects.ball.Ball;
-import com.pong.gameobjects.paddles.AIPaddle;
-import com.pong.gameobjects.paddles.PlayerPaddle;
+import com.pong.gameobjects.entities.Entity;
+import com.pong.gameobjects.entities.ball.Ball;
+import com.pong.gameobjects.entities.paddles.AIPaddle;
+import com.pong.gameobjects.entities.paddles.PlayerPaddle;
 import com.pong.states.GameState;
 
 import java.util.ArrayList;
@@ -14,17 +15,17 @@ import java.util.ArrayList;
 public class Pong extends ApplicationAdapter
 {
 	public GameState gameState;
-	public ArrayList<GameObject> gameObject;
+	public static ArrayList<Entity> entity;
 	
 	@Override
 	public void create()
 	{
 		gameState = GameState.PLAY;
-		gameObject = new ArrayList<GameObject>();
+		entity = new ArrayList<Entity>();
 
-		gameObject.add(new PlayerPaddle());
-		gameObject.add(new AIPaddle());
-		gameObject.add(new Ball());
+		entity.add(new PlayerPaddle());
+		entity.add(new AIPaddle());
+		entity.add(new Ball());
 	}
 
 	@Override
@@ -47,10 +48,10 @@ public class Pong extends ApplicationAdapter
 
 			case PLAY:
 			{
-				for(int i = 0; i < gameObject.size(); ++i)
+				for(int i = 0; i < entity.size(); ++i)
 				{
-					gameObject.get(i).update();
-					gameObject.get(i).render();
+					entity.get(i).update();
+					entity.get(i).render();
 				}
 
 				break;
